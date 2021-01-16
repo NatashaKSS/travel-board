@@ -1,0 +1,52 @@
+/* eslint-disable */
+/* stylelint-disable */
+
+/**
+ * Root level, system wide CSS configurations
+ */
+
+/* FONTS */
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans'), url(./lib/ui/assets/fonts/opensans/OpenSans-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'),
+    url(./lib/ui/assets/fonts/opensans/OpenSans-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans'),
+    url(./lib/ui/assets/fonts/opensans/OpenSans-SemiBold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans'), url(./lib/ui/assets/fonts/opensans/OpenSans-Bold.ttf) format('truetype');
+}
+
+/* CSS */
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

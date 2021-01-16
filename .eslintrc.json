@@ -1,0 +1,12 @@
+{
+  "extends": ["react-app", "plugin:prettier/recommended"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": [
+          "src"
+        ]
+      }
+    }
+  }
+}
