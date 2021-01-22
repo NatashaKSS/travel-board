@@ -5,4 +5,8 @@ const retrieveStationsFromJson = (): StationsJsonInterface => {
   return StationsJson;
 };
 
-export { retrieveStationsFromJson };
+const retrieveStationNames = (): string[] => {
+  return Object.keys(StationsJson);
+};
+
+export { retrieveStationsFromJson, retrieveStationNames };
