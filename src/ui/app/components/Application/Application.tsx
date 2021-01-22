@@ -1,11 +1,20 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import Page from 'lib/ui/components/layout/Page/Page';
+import StationInputSectionContainer from 'ui/travel/components/from-to/StationInputSection/StationInputSectionContainer';
+import TimelineSection from 'ui/travel/components/route-suggestion/TimelineSection/TimelineSection';
 
 const Application = () => {
   return (
-    <Page>
-      <Typography>Hello World</Typography>
+    <Page widthConstraintType="TIGHT">
+      <Box display="flex" flexDirection="column" height="100%">
+        <Box padding={4}>
+          <StationInputSectionContainer />
+        </Box>
+        <Box padding={0} minHeight={400}>
+          <TimelineSection />
+        </Box>
+      </Box>
     </Page>
   );
 };

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import RouteSlice from '../route/routeSlice';
+import TravelSlice from 'ui/travel/ducks/travelSlice';
 
 export const rootReducer = combineReducers({
-  routes: RouteSlice,
+  travel: TravelSlice,
 });

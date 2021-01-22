@@ -8,10 +8,17 @@ const theme = responsiveFontSizes(
     palette: {
       primary: {
         contrastText: '#000000',
-        main: '#80d8ff',
-        light: '#b5ffff',
-        dark: '#49a7cc',
+        main: '#66bed9',
+        light: '#b3edff',
+        dark: '#077fa3',
       },
+    },
+    typography: {
+      fontFamily: '"Open Sans", "Roboto", "Helvetica", "Arial", sans-serif',
+      fontWeightLight: 300,
+      fontWeightRegular: 400,
+      fontWeightMedium: 500,
+      fontWeightBold: 600,
     },
   })
 );
