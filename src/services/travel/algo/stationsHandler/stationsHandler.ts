@@ -38,56 +38,36 @@ const getStations = (stations: StationsJson, path: string[]): Station[] => {
 
   // Accumulate all paths and resolve their lines (because some stations can have multiple lines)
   path.forEach((stationName, i) => {
-    const isLastIndex = i === path.length - 1;
     const linesFrom = Object.keys(stations[stationName]); // all lines from source station
-    const linesTo = Object.keys(stations[path[i]]); // all lines from destination station
+    let linesTo = [];
+    if (i === path.length - 1) {
+      // last index
+      linesTo = Object.keys(stations[path[i - 1]]); // all lines from previous stationName
+    } else {
+      linesTo = Object.keys(stations[path[i + 1]]); // all lines from destination stationName
+    }
 
-    if (!isLastIndex) {
-      const fromLine = findNextLine(linesFrom, linesTo);
-      const fromPosition = stations[stationName][fromLine];
+    const fromLine = findNextLine(linesFrom, linesTo);
+    const fromPosition = stations[stationName][fromLine];
 
-      if (Array.isArray(fromPosition)) {
-        route.push(
-          getStation({
-            name: stationName,
-            line: fromLine,
-            position: fromPosition[0],
-          })
-        );
-      } else {
-        route.push(
-          getStation({
-            name: stationName,
-            line: fromLine,
-            position: fromPosition,
-          })
-        );
-      }
+    if (Array.isArray(fromPosition)) {
+      route.push(
+        getStation({
+          name: stationName,
+          line: fromLine,
+          position: fromPosition[0],
+        })
+      );
+    } else {
+      route.push(
+        getStation({
+          name: stationName,
+          line: fromLine,
+          position: fromPosition,
+        })
+      );
     }
   });
-
-  // Last Station will simply follow the line of the previous station
-  const lastStationName = path[path.length - 1]; // station name of last node
-  const lastStationLine = route[path.length - 2].line; // previous station's line
-  const lastStationPosition = stations[lastStationName][lastStationLine];
-
-  if (Array.isArray(lastStationPosition)) {
-    route.push(
-      getStation({
-        name: lastStationName,
-        line: lastStationLine,
-        position: lastStationPosition[0],
-      })
-    );
-  } else {
-    route.push(
-      getStation({
-        name: lastStationName,
-        line: lastStationLine,
-        position: lastStationPosition,
-      })
-    );
-  }
 
   return route;
 };

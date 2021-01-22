@@ -4,15 +4,20 @@ import { StationInputSectionProps } from './StationInputSection.types';
 import { useStyles } from './StationInputSection.style';
 import Autocomplete from 'lib/ui/components/inputs/Autocomplete/Autocomplete';
 
-const StationInputSection = ({ stations }: StationInputSectionProps) => {
+const StationInputSection = ({ stations, onSelectFrom, onSelectTo }: StationInputSectionProps) => {
   const classes = useStyles();
   return (
     <Paper className={classes.section} elevation={2}>
       <Box marginBottom={2}>
-        <Autocomplete disableClearable={true} options={stations} label="From" />
+        <Autocomplete
+          disableClearable={true}
+          options={stations}
+          label="From"
+          onSelect={onSelectFrom}
+        />
       </Box>
       <Box>
-        <Autocomplete disableClearable={true} options={stations} label="To" />
+        <Autocomplete disableClearable={true} options={stations} label="To" onSelect={onSelectTo} />
       </Box>
     </Paper>
   );

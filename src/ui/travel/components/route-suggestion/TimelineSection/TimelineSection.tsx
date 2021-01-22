@@ -1,13 +1,16 @@
 import React from 'react';
 import { Paper } from '@material-ui/core';
 import { useStyles } from './TimelineSection.style';
-import TimelineContainer from '../Timeline/TimelineContainer';
+import { TimelineSectionProps } from './TimelineSection.types';
+import Timeline from '../Timeline/Timeline';
+import TimelineSummary from '../TimelineSummary/TimelineSummary';
 
-const TimelineSection = () => {
+const TimelineSection = ({ path }: TimelineSectionProps) => {
   const classes = useStyles();
   return (
     <Paper className={classes.section} elevation={2}>
-      <TimelineContainer />
+      {path.length >= 1 ? <TimelineSummary totalNumberOfStations={path.length} /> : null}
+      <Timeline path={path} />
     </Paper>
   );
 };

@@ -5,9 +5,6 @@ const useStyles = makeStyles((theme: Theme) => {
     paper: {
       padding: theme.spacing(1),
     },
-    secondaryTail: {
-      backgroundColor: theme.palette.secondary.main,
-    },
   });
 });
 

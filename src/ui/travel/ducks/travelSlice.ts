@@ -1,5 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
-// import { TravelState } from './travel.types';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { INITIAL_STATE } from './travel.initialState';
 
 /**
@@ -9,9 +8,16 @@ import { INITIAL_STATE } from './travel.initialState';
 const travelSlice = createSlice({
   name: 'travel',
   initialState: INITIAL_STATE,
-  reducers: {},
+  reducers: {
+    setFromStation: (state, action: PayloadAction<string>) => {
+      state.selectedFromStation = action.payload;
+    },
+    setToStation: (state, action: PayloadAction<string>) => {
+      state.selectedToStation = action.payload;
+    },
+  },
 });
 
-// export const {} = travelSlice.actions;
+export const { setFromStation, setToStation } = travelSlice.actions;
 
 export default travelSlice.reducer;

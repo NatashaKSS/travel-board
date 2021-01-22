@@ -2,7 +2,7 @@ import React from 'react';
 import { Box } from '@material-ui/core';
 import Page from 'lib/ui/components/layout/Page/Page';
 import StationInputSectionContainer from 'ui/travel/components/from-to/StationInputSection/StationInputSectionContainer';
-import TimelineSection from 'ui/travel/components/route-suggestion/TimelineSection/TimelineSection';
+import TimelineSectionContainer from 'ui/travel/components/route-suggestion/TimelineSection/TimelineSectionContainer';
 
 const Application = () => {
   return (
@@ -12,7 +12,7 @@ const Application = () => {
           <StationInputSectionContainer />
         </Box>
         <Box padding={0} minHeight={400}>
-          <TimelineSection />
+          <TimelineSectionContainer />
         </Box>
       </Box>
     </Page>

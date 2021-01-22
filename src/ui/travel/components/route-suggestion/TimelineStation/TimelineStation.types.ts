@@ -1,4 +1,4 @@
 export interface TimelineStationProps {
   stationName: string;
-  description?: string;
+  description?: string | null;
 }
