@@ -7,9 +7,18 @@ import StationInputSection from './StationInputSection';
 
 const allStationNames = retrieveStationNames();
 
+const getRemainingStations = (stationName: string | null) => {
+  if (stationName) {
+    return allStationNames.filter((name) => name !== stationName);
+  } else {
+    return allStationNames;
+  }
+};
+
 const mapStateToProps = (state: RootState) => {
   return {
-    stations: allStationNames,
+    fromStations: getRemainingStations(state.travel.selectedToStation),
+    toStations: getRemainingStations(state.travel.selectedFromStation),
   };
 };
 

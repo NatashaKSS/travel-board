@@ -1,5 +1,6 @@
 export interface StationInputSectionProps {
-  stations: string[];
+  fromStations: string[];
+  toStations: string[];
   onSelectFrom: (stationName: string | null) => void;
   onSelectTo: (stationName: string | null) => void;
 }
