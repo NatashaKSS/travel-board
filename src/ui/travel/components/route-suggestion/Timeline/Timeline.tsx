@@ -7,47 +7,30 @@ import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
 import TimelineStation from '../TimelineStation/TimelineStation';
+import EmptyTimeline from '../EmptyTimeline/EmptyTimeline';
 
 const Timeline = ({ path }: TimelineProps) => {
-  return (
-    <MaterialUiTimeline align="left">
-      <TimelineItem>
-        <TimelineSeparator>
-          <TimelineDot />
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent>
-          <TimelineStation stationName="Yew Tee" description="Change to NS line" />
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineSeparator>
-          <TimelineDot />
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent>
-          <TimelineStation stationName="Choa Chu Kang" />
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineSeparator>
-          <TimelineDot />
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent>
-          <TimelineStation stationName="Gardens By The Bay" />
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineSeparator>
-          <TimelineDot />
-        </TimelineSeparator>
-        <TimelineContent>
-          <TimelineStation stationName="Changi Airport" />
-        </TimelineContent>
-      </TimelineItem>
-    </MaterialUiTimeline>
-  );
+  if (path.length === 0) {
+    return <EmptyTimeline />;
+  } else {
+    return (
+      <MaterialUiTimeline align="left">
+        {path.map((station) => {
+          return (
+            <TimelineItem>
+              <TimelineSeparator>
+                <TimelineDot />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent>
+                <TimelineStation stationName={station.name} description="Change to NS line" />
+              </TimelineContent>
+            </TimelineItem>
+          );
+        })}
+      </MaterialUiTimeline>
+    );
+  }
 };
 
 export default Timeline;
