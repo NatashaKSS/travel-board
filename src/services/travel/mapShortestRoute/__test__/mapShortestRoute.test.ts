@@ -1,8 +1,22 @@
 import { mapShortestRoute } from '../mapShortestRoute';
+import { Station } from 'services/travel/types/types';
 
 describe('mapShortestRoute', () => {
+  // Helpers
+  const getStationNames = (stations: Station[]) => {
+    return stations.map((s) => s.name);
+  };
+
+  // =======================
+  // TESTS
+  // =======================
+
+  it('should return empty path if the start and end are the same stations', () => {
+    expect(getStationNames(mapShortestRoute('Yew Tee', 'Yew Tee'))).toEqual([]);
+  });
+
   it('should return shortest path of stations on 1 line', () => {
-    expect(mapShortestRoute('Yew Tee', 'Ang Mo Kio')).toEqual([
+    expect(getStationNames(mapShortestRoute('Yew Tee', 'Ang Mo Kio'))).toEqual([
       'Yew Tee',
       'Kranji',
       'Marsiling',
@@ -18,7 +32,7 @@ describe('mapShortestRoute', () => {
   });
 
   it('should return shortest path of stations across 2 lines', () => {
-    expect(mapShortestRoute('Yew Tee', 'Phoenix')).toEqual([
+    expect(getStationNames(mapShortestRoute('Yew Tee', 'Phoenix'))).toEqual([
       'Yew Tee',
       'Choa Chu Kang',
       'South View',
@@ -29,7 +43,7 @@ describe('mapShortestRoute', () => {
   });
 
   it('should return shortest path of stations across 2 lines, from interchange to interchange', () => {
-    expect(mapShortestRoute('Choa Chu Kang', 'Bukit Panjang')).toEqual([
+    expect(getStationNames(mapShortestRoute('Choa Chu Kang', 'Bukit Panjang'))).toEqual([
       'Choa Chu Kang',
       'South View',
       'Keat Hong',
@@ -40,7 +54,7 @@ describe('mapShortestRoute', () => {
   });
 
   it('should return shortest path of stations across 3 lines, from interchange to interchange', () => {
-    expect(mapShortestRoute('Choa Chu Kang', 'Sixth Avenue')).toEqual([
+    expect(getStationNames(mapShortestRoute('Choa Chu Kang', 'Sixth Avenue'))).toEqual([
       'Choa Chu Kang',
       'South View',
       'Keat Hong',
@@ -56,7 +70,7 @@ describe('mapShortestRoute', () => {
   });
 
   it('should return shortest path of stations across 3 lines, with a cycle', () => {
-    expect(mapShortestRoute('Choa Chu Kang', 'Fajar')).toEqual([
+    expect(getStationNames(mapShortestRoute('Choa Chu Kang', 'Fajar'))).toEqual([
       'Choa Chu Kang',
       'South View',
       'Keat Hong',
@@ -71,7 +85,7 @@ describe('mapShortestRoute', () => {
   });
 
   it('should return shortest path of stations across 3 lines, with 2 cycles', () => {
-    expect(mapShortestRoute('Samudera', 'Oasis')).toEqual([
+    expect(getStationNames(mapShortestRoute('Samudera', 'Oasis'))).toEqual([
       'Samudera',
       'Punggol Point',
       'Teck Lee',
@@ -88,7 +102,7 @@ describe('mapShortestRoute', () => {
   // ======================
 
   it('should return shortest path of stations (ad-hoc test #1)', () => {
-    expect(mapShortestRoute('Buona Vista', 'Serangoon')).toEqual([
+    expect(getStationNames(mapShortestRoute('Buona Vista', 'Serangoon'))).toEqual([
       'Buona Vista',
       'Holland Village',
       'Farrer Road',
@@ -102,7 +116,7 @@ describe('mapShortestRoute', () => {
   });
 
   it('should return shortest path of stations (ad-hoc test #2)', () => {
-    expect(mapShortestRoute('Buona Vista', 'Marina Bay')).toEqual([
+    expect(getStationNames(mapShortestRoute('Buona Vista', 'Marina Bay'))).toEqual([
       'Buona Vista',
       'Commonwealth',
       'Queenstown',
@@ -116,7 +130,7 @@ describe('mapShortestRoute', () => {
   });
 
   it('should return shortest path of stations (ad-hoc test #3)', () => {
-    expect(mapShortestRoute('Woodlands North', 'Marina Bay')).toEqual([
+    expect(getStationNames(mapShortestRoute('Woodlands North', 'Marina Bay'))).toEqual([
       'Woodlands North',
       'Woodlands',
       'Woodlands South',
@@ -138,7 +152,7 @@ describe('mapShortestRoute', () => {
   });
 
   it('should return shortest path of stations (ad-hoc test #4)', () => {
-    expect(mapShortestRoute('HarbourFront', 'Punggol')).toEqual([
+    expect(getStationNames(mapShortestRoute('HarbourFront', 'Punggol'))).toEqual([
       'HarbourFront',
       'Outram Park',
       'Chinatown',
@@ -159,7 +173,7 @@ describe('mapShortestRoute', () => {
   });
 
   it('should return shortest path of stations (ad-hoc test #5)', () => {
-    expect(mapShortestRoute('Changi Airport', 'Orchard')).toEqual([
+    expect(getStationNames(mapShortestRoute('Changi Airport', 'Orchard'))).toEqual([
       'Changi Airport',
       'Expo',
       'Tanah Merah',
@@ -179,7 +193,7 @@ describe('mapShortestRoute', () => {
   });
 
   it('should return shortest path of stations (ad-hoc test #6)', () => {
-    expect(mapShortestRoute('Marymount', 'Rochor')).toEqual([
+    expect(getStationNames(mapShortestRoute('Marymount', 'Rochor'))).toEqual([
       'Marymount',
       'Caldecott',
       'Botanic Gardens',
