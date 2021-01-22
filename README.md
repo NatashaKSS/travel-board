@@ -4,22 +4,26 @@ The app that helps you find the better MRT travel route.
 
 Built with TypeScript + ReactJS + Redux + Material UI Framework + Jest. This project was bootstrapped with Create React App.
 
+### Features:
+
+1. Find the best route between any 2 MRT stations
+2. Shows you the path in a timeline view, with interchanges
+3. Computes approx. travel time and the no. of stations you need to take
+4. Mobile responsive and works on most devices
+5. ... Stay tuned for more!
+
 [[_TOC_]]
 
 ## Getting Started
 
 ### Installing
 
-1. Clone this repo
-
-```
-
-```
+1. Download this repo
 
 2. Navigate to the project directory
 
 ```bash
-
+travel-board
 ```
 
 3. Install dependencies
@@ -28,15 +32,17 @@ Built with TypeScript + ReactJS + Redux + Material UI Framework + Jest. This pro
 npm install
 ```
 
-### Run Locally
-
-1. Spin up a local development server. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Run a local server to serve the application
 
 ```bash
 npm start
 ```
 
-### Run Unit Tests
+5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## Testing
+
+Components of this project are unit tested. To contribute to tests:
 
 - Launch `jest`, our test runner in interactive watch mode.
 
@@ -63,8 +69,13 @@ npm run test:coverage
 ├── coverage                     # Test coverage reports
 ├── public                       # Static site assets
 ├── src
-│   ├── api                      # Modules that handle business logic
-│   │   ├── route-generation
+│   ├── data                     # Modules that handle data access
+│   │   ├── stations
+│   │   |   └── ...etc
+│   │   └── ...etc
+│   ├── services                 # Modules that handle business logic
+│   │   ├── mapShortestRoute     # Services that handle some algorithmic logic
+│   │   ├── models               # Business Data Models
 │   │   |   └── ...etc
 │   │   ├── ...etc
 │   ├── lib                      # Common library modules
@@ -73,27 +84,25 @@ npm run test:coverage
 │   │   |   ├── images
 │   │   |   ├── fonts
 │   │   |   └── ...etc
-│   │   ├── components           # Base React components
-│   │   |   ├── buttons
-│   │   |   ├── forms
-│   │   |   ├── inputs
-│   │   |   ├── modals
-│   │   |   ├── banners
-│   │   |   └── ...etc
-│   │   └── util                 # Common utility functions, e.g. compute base64
+│   │   ├── ui                   # Common, App-Wide React components
+│   │   |   ├── components
+│   │   |       ├── buttons
+│   │   |       ├── forms
+│   │   |       ├── inputs
+│   │   |       ├── modals
+│   │   |       ├── banners
+│   │   |       └── ...etc
+│   │   └── theme                # Common theme components or attributes for reuse
 │   │       └── ...etc
 │   └── ui                       # Modules containing UI components for individual features
 │       ├── app                  # Top-level app component
 │           ├── components       # React components that make up this module
-│           ├── ducks            # Redux action creators, reducers, selectors for this module
-│           ├── hooks            # React hooks for reuse within this module
 │           └── ...etc
-│       ├── from-to              # Origin / Destination selection module
-│           ├── components
-│           ├── ducks
+│       ├── travel               # Travel route suggestion UI components
+│           ├── components       # React components that make up this module
+│           ├── ducks            # Redux action creators, reducers, selectors for this module
 │           ├── hooks
 │           └── ...etc
-│       ├── route-suggestion     # List of route and steps suggestions
 │       └── ...etc
 └── ...
 ```
