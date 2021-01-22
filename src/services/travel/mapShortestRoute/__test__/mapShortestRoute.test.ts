@@ -1,5 +1,5 @@
 import { mapShortestRoute } from '../mapShortestRoute';
-import { Station } from 'services/travel/types/types';
+import { Station } from 'services/travel/models/stations';
 
 describe('mapShortestRoute', () => {
   // Helpers

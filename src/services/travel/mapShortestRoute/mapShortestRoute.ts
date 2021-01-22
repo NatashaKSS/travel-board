@@ -1,4 +1,4 @@
-import { Station } from '../types/types';
+import { Station } from '../models/stations';
 import { retrieveStationsFromJson } from 'data/stations/readers/retrieveStationsFromJson';
 import { findShortestPath } from '../algo/findShortestPath/findShortestPath';
 import { getStations } from '../algo/stationsHandler/stationsHandler';
