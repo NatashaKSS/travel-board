@@ -17,6 +17,8 @@ const getRemainingStations = (stationName: string | null) => {
 
 const mapStateToProps = (state: RootState) => {
   return {
+    selectedFromStation: state.travel.selectedFromStation,
+    selectedToStation: state.travel.selectedToStation,
     fromStations: getRemainingStations(state.travel.selectedToStation),
     toStations: getRemainingStations(state.travel.selectedFromStation),
   };

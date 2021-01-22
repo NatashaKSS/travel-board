@@ -15,9 +15,15 @@ const travelSlice = createSlice({
     setToStation: (state, action: PayloadAction<string>) => {
       state.selectedToStation = action.payload;
     },
+    swapStations: (state) => {
+      const from = state.selectedFromStation;
+      const to = state.selectedToStation;
+      state.selectedFromStation = to;
+      state.selectedToStation = from;
+    },
   },
 });
 
-export const { setFromStation, setToStation } = travelSlice.actions;
+export const { setFromStation, setToStation, swapStations } = travelSlice.actions;
 
 export default travelSlice.reducer;

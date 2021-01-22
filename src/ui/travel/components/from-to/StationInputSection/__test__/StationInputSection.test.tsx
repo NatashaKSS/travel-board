@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import MaterialUiAutocomplete from '@material-ui/lab/Autocomplete';
 import StationInputSection from '../StationInputSection';
+import { ProviderWrapper } from 'lib/test/util/components/ProviderWrapper/ProviderWrapper';
 
 describe('StationInputSection', () => {
   let fromOnChangeListener: jest.Mock<any, any>;
@@ -12,14 +13,16 @@ describe('StationInputSection', () => {
     toOnChangeListener = jest.fn();
   });
 
-  it('should render the Autocomplete component', () => {
+  it('should render the component', () => {
     const component = (
-      <StationInputSection
-        fromStations={[]}
-        onSelectFrom={fromOnChangeListener}
-        toStations={[]}
-        onSelectTo={toOnChangeListener}
-      />
+      <ProviderWrapper>
+        <StationInputSection
+          fromStations={[]}
+          onSelectFrom={fromOnChangeListener}
+          toStations={[]}
+          onSelectTo={toOnChangeListener}
+        />
+      </ProviderWrapper>
     );
     const mounted = mount(component);
     expect(mounted.find(component)).toBeTruthy();
@@ -27,12 +30,14 @@ describe('StationInputSection', () => {
 
   it('should map stations prop', () => {
     const component = (
-      <StationInputSection
-        fromStations={['A']}
-        onSelectFrom={fromOnChangeListener}
-        toStations={['B']}
-        onSelectTo={toOnChangeListener}
-      />
+      <ProviderWrapper>
+        <StationInputSection
+          fromStations={['A']}
+          onSelectFrom={fromOnChangeListener}
+          toStations={['B']}
+          onSelectTo={toOnChangeListener}
+        />
+      </ProviderWrapper>
     );
     const mounted = mount(component);
     expect(mounted.find(MaterialUiAutocomplete).at(0).props().options).toEqual(['A']);
@@ -41,12 +46,14 @@ describe('StationInputSection', () => {
 
   it('should be able to invoke onChange to pass selected value', () => {
     const component = (
-      <StationInputSection
-        fromStations={['A']}
-        onSelectFrom={fromOnChangeListener}
-        toStations={['B']}
-        onSelectTo={toOnChangeListener}
-      />
+      <ProviderWrapper>
+        <StationInputSection
+          fromStations={['A']}
+          onSelectFrom={fromOnChangeListener}
+          toStations={['B']}
+          onSelectTo={toOnChangeListener}
+        />
+      </ProviderWrapper>
     );
     const mounted = mount(component);
     const fromOnChangeHandler = mounted.find(MaterialUiAutocomplete).at(0).props().onChange;

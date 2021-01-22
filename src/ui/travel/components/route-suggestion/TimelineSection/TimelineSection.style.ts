@@ -4,8 +4,7 @@ const useStyles = makeStyles((theme: Theme) => {
   return createStyles({
     section: {
       padding: theme.spacing(4),
-      borderTopLeftRadius: 50,
-      borderTopRightRadius: 50,
+      borderRadius: 50,
     },
   });
 });

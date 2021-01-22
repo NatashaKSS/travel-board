@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 import Page from 'lib/ui/components/layout/Page/Page';
 import StationInputSectionContainer from 'ui/travel/components/from-to/StationInputSection/StationInputSectionContainer';
 import TimelineSectionContainer from 'ui/travel/components/route-suggestion/TimelineSection/TimelineSectionContainer';
@@ -14,8 +14,17 @@ const Application = () => {
         <Box padding={4}>
           <StationInputSectionContainer />
         </Box>
-        <Box padding={0} minHeight={400}>
+        <Box padding={0} paddingBottom={4}>
           <TimelineSectionContainer />
+        </Box>
+        <Box textAlign="center" paddingBottom={4}>
+          <Typography variant="subtitle2">
+            Made with{' '}
+            <span role="img" aria-label="love">
+              ❤️
+            </span>{' '}
+            by Natasha Koh
+          </Typography>
         </Box>
       </Box>
     </Page>

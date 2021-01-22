@@ -1,4 +1,4 @@
-import travelSlice, { setFromStation, setToStation } from '../travelSlice';
+import travelSlice, { setFromStation, setToStation, swapStations } from '../travelSlice';
 import { INITIAL_STATE } from '../travel.initialState';
 
 describe('Travel Slice Reducer', () => {
@@ -19,6 +19,23 @@ describe('Travel Slice Reducer', () => {
     expect(travelSlice(INITIAL_STATE, setToStation('station'))).toEqual({
       ...INITIAL_STATE,
       selectedToStation: 'station',
+    });
+  });
+
+  it('should set state using swapStations', () => {
+    expect(
+      travelSlice(
+        {
+          ...INITIAL_STATE,
+          selectedFromStation: 'A',
+          selectedToStation: 'B',
+        },
+        swapStations()
+      )
+    ).toEqual({
+      ...INITIAL_STATE,
+      selectedFromStation: 'B',
+      selectedToStation: 'A',
     });
   });
 });

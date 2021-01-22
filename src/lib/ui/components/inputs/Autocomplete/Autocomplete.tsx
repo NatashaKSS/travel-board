@@ -6,12 +6,14 @@ import { AutocompleteProps } from './Autocomplete.types';
 const Autocomplete = ({
   options,
   label,
+  value,
   disableClearable = false,
   onSelect,
 }: AutocompleteProps) => {
   return (
     <MaterialUiAutocomplete
       options={options}
+      value={value}
       disableClearable={disableClearable}
       renderInput={(params) => <TextField {...params} label={label} />}
       onChange={(event, value) => {
