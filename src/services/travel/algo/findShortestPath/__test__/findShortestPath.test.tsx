@@ -1,4 +1,4 @@
-import { Station } from 'services/travel/models/stations';
+import { Station } from 'services/travel/models/stations.types';
 import * as ConvertStationsToAdjacencyListModule from '../../convertStationsToAdjacencyList/convertStationsToAdjacencyList';
 import { findShortestPath } from '../findShortestPath';
 

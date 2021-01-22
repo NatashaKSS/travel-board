@@ -1,5 +1,6 @@
-import { Station } from '../../models/stations';
+import { Station } from '../../models/stations.types';
 import { StationsJson } from 'data/stations/types/stations.types';
+import { getStation } from 'services/travel/models/stations';
 
 /**
  * Obtains the line of the 'from' station, in the direction of the route.
@@ -17,23 +18,6 @@ const findNextLine = (linesFrom: string[], linesTo: string[]) => {
     // there should only ever be 1 element, because no 2 stations can have more than 2 lines
     return intersection[0];
   }
-};
-
-const getStation = ({
-  name,
-  line,
-  position,
-}: {
-  name: string | null;
-  line: string | null;
-  position: number;
-}): Station => {
-  return {
-    id: `${name}${line}`,
-    name: name ?? '',
-    line: line ?? '',
-    position,
-  };
 };
 
 /**

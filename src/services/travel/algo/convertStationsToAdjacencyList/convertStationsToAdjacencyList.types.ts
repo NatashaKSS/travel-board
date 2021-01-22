@@ -1,4 +1,4 @@
-import { Station } from 'services/travel/models/stations';
+import { Station } from 'services/travel/models/stations.types';
 
 export interface AdjacentStations {
   [stationName: string]: Station[];
