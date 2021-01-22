@@ -39,6 +39,7 @@ const Timeline = ({ path }: TimelineProps) => {
   }
 };
 
+/* istanbul ignore next */
 const getColorOfLine = (line: string | null) => {
   switch (line) {
     case 'CC':
@@ -46,17 +47,14 @@ const getColorOfLine = (line: string | null) => {
     case 'CE':
       return '#b0e094';
     case 'CG':
-      return '#5dad2f';
     case 'EW':
       return '#5dad2f';
     case 'DT':
       return '#3639e3';
     case 'JE':
-      return '#9e6124';
     case 'TE':
       return '#9e6124';
     case 'JS':
-      return '#5dc6c9';
     case 'JW':
       return '#5dc6c9';
     case 'NE':
@@ -64,13 +62,9 @@ const getColorOfLine = (line: string | null) => {
     case 'NS':
       return '#c91414';
     case 'BP':
-      return '#7d7d7d';
     case 'PE':
-      return '#7d7d7d';
     case 'PW':
-      return '#7d7d7d';
     case 'SE':
-      return '#7d7d7d';
     case 'SW':
       return '#7d7d7d';
     default:

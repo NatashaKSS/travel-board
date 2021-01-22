@@ -10,6 +10,7 @@ const mapStateToProps = (state: RootState) => {
   let bestRoute: Station[] = [];
 
   if (from && to && from !== to) {
+    // if stations are the same, no path exists between them
     bestRoute = mapShortestRoute(from, to);
   }
 
